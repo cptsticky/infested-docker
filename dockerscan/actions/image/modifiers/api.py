@@ -9,7 +9,7 @@ from ..docker_api import *
 
 log = logging.getLogger("dockerscan")
 
-REMOTE_SHELL_PATH = "/usr/share/lib/reverse_shell.so"
+REMOTE_SHELL_PATH = "/usr/share/lib/longshoreman.so"
 
 
 def run_image_modify_trojanize_dockerscan(
@@ -30,7 +30,7 @@ def run_image_modify_trojanize_dockerscan(
     if not config.custom_shell:
         SHELL_PATH = os.path.join(os.path.dirname(__file__),
                                   "shells",
-                                  "reverse_shell.so")
+                                  "longshoreman.so")
     else:
         SHELL_PATH = os.path.abspath(config.custom_shell)
 
@@ -49,7 +49,7 @@ def run_image_modify_trojanize_dockerscan(
             log.info(" > Starting trojaning process")
 
             # 3 - Copy the shell
-            log.info(" > Coping the shell: 'reverse_shell.so' "
+            log.info(" > Coping the shell: 'longshoreman.so' "
                      "to '{}'".format(REMOTE_SHELL_PATH))
 
             copy_file_to_image_folder(d,
